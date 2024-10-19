@@ -1,0 +1,3 @@
+install next : npx create-next-app@latest
+
+install zod library and react hook form resolver : npm i @hookform/resolvers zod
