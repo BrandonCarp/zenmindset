@@ -1,3 +1,8 @@
+Re sources :
+https://react-hook-form.com/
+https://strapi.io/blog/form-validation-in-typescipt-projects-using-zod-and-react-hook-forma
+https://vercel.com/templates/next.js
+
 install next : npx create-next-app@latest
 
 install zod library and react hook form resolver : npm i @hookform/resolvers zod
