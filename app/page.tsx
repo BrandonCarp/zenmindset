@@ -1,9 +1,18 @@
 import Image from "next/image";
-import Form from "@/components/Form";
+import DarkModeButton from "@/components/ui/DarkModeButton";
+import SignUpForm from "@/components/ui/SignUpForm";
+
+
 export default function Home() {
+
+
+
   return (
-    <Form />
-  );
+    <div className="">
+      <DarkModeButton />
+      {/* <SignUpForm /> */}
+    </div>
+  )
 }
 
 // https://strapi.io/blog/form-validation-in-typescipt-projects-using-zod-and-react-hook-forma
