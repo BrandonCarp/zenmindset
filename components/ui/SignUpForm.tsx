@@ -1,4 +1,3 @@
-// ./src/components/Form.ts
 import React from "react";
 import Link from "next/link";
 import DarkModeButton from "./DarkModeButton";
@@ -7,35 +6,35 @@ export default function SignUpForm() {
   return (
     <div>
       <div>
-        <div className="signup-1 flex items-center relative ">
+        <div className="signup-1 flex items-center relative">
           <div className="container px-4 mx-auto relative z-10">
             <div className="sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-5/12 mx-auto">
-              <div className="box bg-white p-6 md:px-12 md:pt-12 border-t-10 border-solid border-indigo-600">
-                <h2 className="text-3xl text-gray-800 text-center">
+              <div className="box bg-white p-6 md:px-12 md:pt-12 border-2 border-gray-300 dark:border-white rounded">
+                <h1 className="flex items-center justify-center text-[3rem] text-black ">
+                  Zen Mindset
+                </h1>
+                <h2 className="text-3xl   dark:text-black text-center">
                   Create a new account
                 </h2>
 
                 <form>
                   <div className="signup-form mt-6 md:mt-12">
                     <div className="border-2 border-solid rounded flex items-center mb-4">
-
                       <div className="flex-1">
-
                         <input
                           type="text"
                           placeholder="Username"
-                          className="text-gray-700 h-10 py-1 pl-3 w-full"
+                          className="text-black dark:text-black h-10 py-1 pl-3 w-full"
                         />
                       </div>
                     </div>
 
                     <div className="border-2 border-solid rounded flex items-center mb-4">
-
                       <div className="flex-1">
                         <input
                           type="text"
                           placeholder="E-mail"
-                          className="text-gray-700 h-10 py-1 pl-3  w-full"
+                          className="text-black dark:text-black h-10 py-1 pl-3  w-full"
                         />
                       </div>
                     </div>
@@ -45,34 +44,22 @@ export default function SignUpForm() {
                         <input
                           type="password"
                           placeholder="Password"
-                          className="text-gray-700 h-10 py-1 pl-3 w-full"
+                          className="text-black dark:text-black h-10 py-1 pl-3 w-full"
                         />
                       </div>
                     </div>
 
                     <div className="border-2 border-solid rounded flex items-center mb-4">
-
                       <div className="flex-1">
                         <input
                           type="text"
                           placeholder="Full name"
-                          className="text-gray-700 h-10 py-1 pl-3 w-full"
+                          className="text-black dark:text-black h-10 py-1 pl-3 w-full"
                         />
                       </div>
                     </div>
 
-                    <div className="border-2 border-solid rounded flex items-center mb-4">
-
-                      <div className="flex-1">
-                        <input
-                          type="text"
-                          placeholder="Username"
-                          className="text-gray-700 h-10 py-1 pl-3 w-full"
-                        />
-                      </div>
-                    </div>
-
-                    <p className="text-sm text-center mt-6">
+                    <p className="text-sm text-center mt-6 text-black">
                       By signing up, you agree to our{" "}
                       <a href="#" className="text-indigo-600 hover:underline">
                         Terms

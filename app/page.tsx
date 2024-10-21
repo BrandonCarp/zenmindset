@@ -1,7 +1,7 @@
 import Image from "next/image";
 import DarkModeButton from "@/components/ui/DarkModeButton";
 import SignUpForm from "@/components/ui/SignUpForm";
-
+import Navbar from "@/components/ui/Navbar";
 
 export default function Home() {
 
@@ -9,7 +9,8 @@ export default function Home() {
 
   return (
     <div className="">
-      <DarkModeButton />
+      <Navbar />
+
       {/* <SignUpForm /> */}
     </div>
   )
