@@ -1,8 +1,58 @@
+'use client';
 import React from "react";
 import Link from "next/link";
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
 import DarkModeButton from "./DarkModeButton";
 
+// https://strapi.io/blog/form-validation-in-typescipt-projects-using-zod-and-react-hook-forma
+
+
+const FormSchema = z.object({
+  username: z
+    .string()
+    .min(3, "Username must not be lesser than 3 characters")
+    .max(25, "Username must not be greater than 25 characters")
+    .regex(
+      /^[a-zA-Z0-9_]+$/,
+      "The username must contain only letters, numbers and underscore (_)",
+    ),
+  email: z.string().email("Invalid email. Email must be a valid email address"),
+  password: z
+    .string()
+    .min(3, "Password must not be lesser than 3 characters")
+    .max(16, "Password must not be greater than 16 characters"),
+  fullName: z.string().min(3, "Name must not be lesser than 3 characters"),
+  age: z.string().refine(
+    (age) => {
+      return Number(age) >= 18;
+    },
+    { message: "You must be 18 years or older" },
+  ),
+});
+
+type IFormInput = z.infer<typeof FormSchema>;
+
+
+
+
+
+
 export default function SignUpForm() {
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<IFormInput>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  const onSubmit = (data: IFormInput) => {
+    console.log(data);
+  };
+
   return (
     <div>
       <div>
@@ -17,11 +67,12 @@ export default function SignUpForm() {
                   Create a new account
                 </h2>
 
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="signup-form mt-6 md:mt-12">
                     <div className="border-2 border-solid rounded flex items-center mb-4">
                       <div className="flex-1">
                         <input
+                          {...register("username")}
                           type="text"
                           placeholder="Username"
                           className="text-black dark:text-black h-10 py-1 pl-3 w-full"
@@ -32,6 +83,7 @@ export default function SignUpForm() {
                     <div className="border-2 border-solid rounded flex items-center mb-4">
                       <div className="flex-1">
                         <input
+                          {...register("email")}
                           type="text"
                           placeholder="E-mail"
                           className="text-black dark:text-black h-10 py-1 pl-3  w-full"
@@ -42,6 +94,7 @@ export default function SignUpForm() {
                     <div className="border-2 border-solid rounded flex items-center mb-4">
                       <div className="flex-1">
                         <input
+                          {...register("password")}
                           type="password"
                           placeholder="Password"
                           className="text-black dark:text-black h-10 py-1 pl-3 w-full"
@@ -52,8 +105,20 @@ export default function SignUpForm() {
                     <div className="border-2 border-solid rounded flex items-center mb-4">
                       <div className="flex-1">
                         <input
+                          {...register("fullName")}
                           type="text"
                           placeholder="Full name"
+                          className="text-black dark:text-black h-10 py-1 pl-3 w-full"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="border-2 border-solid rounded flex items-center mb-4">
+                      <div className="flex-1">
+                        <input
+                          {...register("age")}
+                          type="number"
+                          placeholder="Age"
                           className="text-black dark:text-black h-10 py-1 pl-3 w-full"
                         />
                       </div>
@@ -71,7 +136,7 @@ export default function SignUpForm() {
                     </p>
 
                     <div className="text-center mt-6 md:mt-12">
-                      <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-xl py-2 px-4 md:px-6 rounded transition-colors duration-300">
+                      <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-xl py-2 px-4 md:px-6 rounded transition-colors duration-300" onClick={handleSubmit(onSubmit)}>
                         Sign Up{" "}
                         <span className="far fa-paper-plane ml-2"></span>
                       </button>
