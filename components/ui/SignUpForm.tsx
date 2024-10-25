@@ -69,19 +69,25 @@ export default function SignUpForm() {
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="signup-form mt-6 md:mt-12">
-                    <div className="border-2 border-solid rounded flex items-center mb-4">
+                    <div className="border-2 border-solid rounded flex items-center mb-4 ">
+
                       <div className="flex-1">
+                        {/* {errors.username && <p className="text-red-800 border border-black">{errors.username.message}</p>} */}
                         <input
                           {...register("username")}
                           type="text"
                           placeholder="Username"
                           className="text-black dark:text-black h-10 py-1 pl-3 w-full"
                         />
+
                       </div>
+
                     </div>
 
                     <div className="border-2 border-solid rounded flex items-center mb-4">
+
                       <div className="flex-1">
+                        {/* {errors.email && <p className="text-red-800 border border-black">{errors.email.message}</p>} */}
                         <input
                           {...register("email")}
                           type="text"
