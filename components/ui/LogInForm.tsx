@@ -12,7 +12,7 @@ export default function LogInForm() {
               <div className="box bg-white p-6 md:px-12 md:pt-12 border-2 border-gray-300 dark:border-white  rounded">
                 <h1 className="flex items-center justify-center text-[3rem] text-black">Zen Mindset</h1>
                 <h2 className="text-3xl text-gray-800 text-center">
-                  Create a new account
+                  Log in
                 </h2>
 
                 <form>

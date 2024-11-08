@@ -35,7 +35,43 @@ const FormSchema = z.object({
 type IFormInput = z.infer<typeof FormSchema>;
 
 
+// Example code :
+// const onSubmit = async (data: IFormInput) => {
+//   // Prepare data to send
+//   const payload = {
+//     user_name: data.username,
+//     password: data.password,
+//     email: data.email,
+//     full_name: data.fullName,
+//     age: data.age, // Ensure age is properly passed as a number if needed
+//   };
 
+//   try {
+//     // Make a POST request to the Flask backend
+//     const response = await fetch('http://localhost:5000/api/users/register', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(payload), // Send data as a JSON string
+//     });
+
+//     const result = await response.json();
+
+//     if (response.ok) {
+//       // Handle success - user created
+//       alert('User registered successfully!');
+//       console.log('User data:', result);
+//       // You can redirect or perform other actions on success
+//     } else {
+//       // Handle error - user not created
+//       alert('Registration failed: ' + result.error);
+//     }
+//   } catch (error) {
+//     console.error('Network error:', error);
+//     alert('An error occurred while registering the user.');
+//   }
+// };
 
 
 
