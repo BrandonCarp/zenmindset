@@ -35,44 +35,27 @@ const FormSchema = z.object({
 type IFormInput = z.infer<typeof FormSchema>;
 
 
-// Example code :
-// const onSubmit = async (data: IFormInput) => {
-//   // Prepare data to send
-//   const payload = {
-//     user_name: data.username,
-//     password: data.password,
-//     email: data.email,
-//     full_name: data.fullName,
-//     age: data.age, // Ensure age is properly passed as a number if needed
-//   };
+// Post Request
+async function newRegistration(data: IFormInput) {
+  try {
+    const response = await fetch('http://127.0.0.1:5000/api/users/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
 
-//   try {
-//     // Make a POST request to the Flask backend
-//     const response = await fetch('http://localhost:5000/api/users/register', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(payload), // Send data as a JSON string
-//     });
+    if (!response.ok) {
+      throw new Error('Failed to register');
+    }
 
-//     const result = await response.json();
-
-//     if (response.ok) {
-//       // Handle success - user created
-//       alert('User registered successfully!');
-//       console.log('User data:', result);
-//       // You can redirect or perform other actions on success
-//     } else {
-//       // Handle error - user not created
-//       alert('Registration failed: ' + result.error);
-//     }
-//   } catch (error) {
-//     console.error('Network error:', error);
-//     alert('An error occurred while registering the user.');
-//   }
-// };
-
+    const result = await response.json();
+    console.log('Success:', result);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
 
 
 export default function SignUpForm() {
@@ -87,6 +70,7 @@ export default function SignUpForm() {
 
   const onSubmit = (data: IFormInput) => {
     console.log(data);
+    newRegistration(data);
   };
 
   return (
