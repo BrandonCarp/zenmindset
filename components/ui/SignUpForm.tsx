@@ -6,6 +6,11 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import DarkModeButton from "./DarkModeButton";
 
+// separation of concerns
+// move formschma maybe ?
+// move registration function to its own files
+
+
 // https://strapi.io/blog/form-validation-in-typescipt-projects-using-zod-and-react-hook-forma
 
 
@@ -33,6 +38,7 @@ const FormSchema = z.object({
 });
 
 type IFormInput = z.infer<typeof FormSchema>;
+
 
 
 // Post Request
