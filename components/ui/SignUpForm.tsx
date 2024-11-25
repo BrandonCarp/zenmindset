@@ -3,65 +3,8 @@ import React from "react";
 import Link from "next/link";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import DarkModeButton from "./DarkModeButton";
-
-// separation of concerns
-// move formschma maybe ?
-// move registration function to its own files
-
-
-// https://strapi.io/blog/form-validation-in-typescipt-projects-using-zod-and-react-hook-forma
-
-
-const FormSchema = z.object({
-  username: z
-    .string()
-    .min(3, "Username must not be lesser than 3 characters")
-    .max(25, "Username must not be greater than 25 characters")
-    .regex(
-      /^[a-zA-Z0-9_]+$/,
-      "The username must contain only letters, numbers and underscore (_)",
-    ),
-  email: z.string().email("Invalid email. Email must be a valid email address"),
-  password: z
-    .string()
-    .min(3, "Password must not be lesser than 3 characters")
-    .max(16, "Password must not be greater than 16 characters"),
-  fullName: z.string().min(3, "Name must not be lesser than 3 characters"),
-  age: z.string().refine(
-    (age) => {
-      return Number(age) >= 18;
-    },
-    { message: "You must be 18 years or older" },
-  ),
-});
-
-type IFormInput = z.infer<typeof FormSchema>;
-
-
-
-// Post Request
-async function newRegistration(data: IFormInput) {
-  try {
-    const response = await fetch('http://127.0.0.1:5000/api/users/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to register');
-    }
-
-    const result = await response.json();
-    console.log('Success:', result);
-  } catch (error) {
-    console.error('Error:', error);
-  }
-}
+import { IFormInput, FormSchema } from "@/app/schemas/userSchema";
+import newRegistration from "@/app/api/register/userService";
 
 
 export default function SignUpForm() {
