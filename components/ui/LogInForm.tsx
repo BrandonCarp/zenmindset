@@ -1,11 +1,25 @@
 import React from "react";
 import Link from "next/link";
-import { useForm } from 'react-hook-form';
+import { useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
 import { IFormInput, FormSchema } from "@/app/schemas/userSchema";
-import { userSignIn } from "@/app/api/register/userService";
+import userSignIn from "@/app/api/register/userService";
 
 export default function LogInForm() {
+
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  // } = useForm<IFormInput>({
+  //   resolver: zodResolver(FormSchema),
+  // });
+
+  const onSubmit = () => {
+    console.log(data);
+    userSignIn(data);
+  };
+
   return (
     <div>
       <div>
@@ -19,7 +33,7 @@ export default function LogInForm() {
                   Log in
                 </h2>
 
-                <form>
+                <form >
                   <div className="signup-form mt-6 md:mt-12">
                     <div className="border-2 border-solid rounded flex items-center mb-4">
 
