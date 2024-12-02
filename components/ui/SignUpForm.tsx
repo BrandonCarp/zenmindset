@@ -3,8 +3,8 @@ import React from "react";
 import Link from "next/link";
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { IFormInput, FormSchema } from "@/app/schemas/userSchema";
-import newRegistration from "@/app/api/register/userService";
+import { IRegistrationFormInput, registrationSchema } from "@/app/schemas/userSchema";
+import { newRegistration } from "@/app/api/register/userService";
 
 
 export default function SignUpForm() {
@@ -13,13 +13,18 @@ export default function SignUpForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<IFormInput>({
-    resolver: zodResolver(FormSchema),
+  } = useForm<IRegistrationFormInput>({
+    resolver: zodResolver(registrationSchema),
   });
 
-  const onSubmit = (data: IFormInput) => {
-    console.log(data);
-    newRegistration(data);
+  const onSubmit = async (data: IRegistrationFormInput) => {
+    try {
+      await newRegistration(data);
+      console.log("Registration successful!");
+    } catch (error) {
+      console.error("Registration failed:", error);
+      alert("Registration failed. Please try again.");
+    }
   };
 
   return (
@@ -48,7 +53,7 @@ export default function SignUpForm() {
                           placeholder="Username"
                           className="text-black dark:text-black h-10 py-1 pl-3 w-full"
                         />
-
+                        {errors.username && <p className="text-red-800">{errors.username.message}</p>}
                       </div>
 
                     </div>
@@ -59,10 +64,11 @@ export default function SignUpForm() {
                         {/* {errors.email && <p className="text-red-800 border border-black">{errors.email.message}</p>} */}
                         <input
                           {...register("email")}
-                          type="text"
+                          type="email"
                           placeholder="E-mail"
                           className="text-black dark:text-black h-10 py-1 pl-3  w-full"
                         />
+                        {errors.email && <p className="text-red-800">{errors.email.message}</p>}
                       </div>
                     </div>
 
@@ -70,10 +76,11 @@ export default function SignUpForm() {
                       <div className="flex-1">
                         <input
                           {...register("password")}
-                          type="password"
+                          type="text"
                           placeholder="Password"
                           className="text-black dark:text-black h-10 py-1 pl-3 w-full"
                         />
+                        {errors.password && <p className="text-red-800">{errors.password.message}</p>}
                       </div>
                     </div>
 
@@ -111,7 +118,7 @@ export default function SignUpForm() {
                     </p>
 
                     <div className="text-center mt-6 md:mt-12">
-                      <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-xl py-2 px-4 md:px-6 rounded transition-colors duration-300" onClick={handleSubmit(onSubmit)}>
+                      <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-xl py-2 px-4 md:px-6 rounded transition-colors duration-300" type="submit" >
                         Sign Up{" "}
                         <span className="far fa-paper-plane ml-2"></span>
                       </button>

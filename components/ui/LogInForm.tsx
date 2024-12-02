@@ -2,23 +2,32 @@ import React from "react";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from '@hookform/resolvers/zod';
-import { IFormInput, FormSchema } from "@/app/schemas/userSchema";
-import userSignIn from "@/app/api/register/userService";
+import { ILoginFormInput, loginSchema } from "@/app/schemas/userSchema";
+import { userSignIn } from "@/app/api/register/userService";
+
+
 
 export default function LogInForm() {
 
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm<IFormInput>({
-  //   resolver: zodResolver(FormSchema),
-  // });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ILoginFormInput>({
+    resolver: zodResolver(loginSchema),
+  });
 
-  const onSubmit = () => {
-    console.log(data);
-    userSignIn(data);
+  const onSubmit = async (data: ILoginFormInput) => {
+    try {
+      await userSignIn(data);
+      console.log("Login successful!");
+    } catch (error) {
+      console.error("Login failed:", error);
+      alert("Login failed. Please try again.");
+    }
   };
+
+
 
   return (
     <div>
@@ -33,13 +42,14 @@ export default function LogInForm() {
                   Log in
                 </h2>
 
-                <form >
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <div className="signup-form mt-6 md:mt-12">
                     <div className="border-2 border-solid rounded flex items-center mb-4">
 
                       <div className="flex-1">
 
                         <input
+                          {...register("username")}
                           type="text"
                           placeholder="Username"
                           className="text-gray-700 h-10 py-1 pl-3 w-full"
@@ -52,7 +62,8 @@ export default function LogInForm() {
                     <div className="border-2 border-solid rounded flex items-center mb-4">
                       <div className="flex-1">
                         <input
-                          type="password"
+                          {...register("password")}
+                          type="text"
                           placeholder="Password"
                           className="text-gray-700 h-10 py-1 pl-3 w-full"
                         />
@@ -61,7 +72,7 @@ export default function LogInForm() {
 
 
                     <div className="text-center mt-6 md:mt-12">
-                      <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-xl py-2 px-4 md:px-6 rounded transition-colors duration-300">
+                      <button className="bg-indigo-600 hover:bg-indigo-700 text-white text-xl py-2 px-4 md:px-6 rounded transition-colors duration-300" type="submit">
                         Log in{" "}
                         <span className="far fa-paper-plane ml-2"></span>
                       </button>

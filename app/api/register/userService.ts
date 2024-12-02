@@ -8,7 +8,12 @@ export interface NewUserPayload {
   age: string;
 }
 
-export default async function newRegistration(data: NewUserPayload) {
+export interface LoginPayload {
+  username: string;
+  password: string;
+}
+
+export async function newRegistration(data: NewUserPayload) {
   try {
     const response = await fetch('http://127.0.0.1:5000/api/users/register', {
       method: 'POST',
@@ -29,12 +34,11 @@ export default async function newRegistration(data: NewUserPayload) {
   }
 }
 
-export async function userSignIn(data: NewUserPayload) {
+export async function userSignIn(data: LoginPayload) {
   try {
     const response = await fetch('http://127.0.0.1:5000/api/users/login', {
       method: 'POST',
       headers: {
-
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data),
@@ -43,7 +47,6 @@ export async function userSignIn(data: NewUserPayload) {
     if (!response.ok) {
       throw new Error('Failed to Login');
     }
-
 
     const result = await response.json();
     console.log('Success', result);

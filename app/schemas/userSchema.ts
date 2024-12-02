@@ -1,6 +1,6 @@
 import * as z from 'zod';
 
-export const FormSchema = z.object({
+export const registrationSchema = z.object({
   username: z
     .string()
     .min(3, "Username must not be lesser than 3 characters")
@@ -23,4 +23,21 @@ export const FormSchema = z.object({
   ),
 });
 
-export type IFormInput = z.infer<typeof FormSchema>;
+export type IRegistrationFormInput = z.infer<typeof registrationSchema>;
+
+export const loginSchema = z.object({
+  username: z
+    .string()
+    .min(3, "Username must not be lesser than 3 characters")
+    .max(25, "Username must not be greater than 25 characters")
+    .regex(
+      /^[a-zA-Z0-9_]+$/,
+      "The username must contain only letters, numbers and underscore (_)",
+    ),
+  password: z
+    .string()
+    .min(3, "Password must not be lesser than 3 characters")
+    .max(16, "Password must not be greater than 16 characters"),
+});
+
+export type ILoginFormInput = z.infer<typeof loginSchema>;
