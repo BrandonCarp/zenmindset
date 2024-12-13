@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import DarkModeButton from "@/components/ui/DarkModeButton";
 import SignUpForm from "@/components/ui/SignUpForm";
@@ -10,10 +11,15 @@ export default function Home() {
   return (
     <div className="">
       <Navbar />
+      <h1>Temp Links</h1>
+      <div className=" space-x-5">
+        <Link href="/signup" className="text-indigo-600 hover:underline">Sign up</Link>
+        <Link href="/login" className="text-indigo-600 hover:underline">Sign In</Link>
+      </div>
 
       {/* <SignUpForm /> */}
     </div>
   )
 }
 
-// https://strapi.io/blog/form-validation-in-typescipt-projects-using-zod-and-react-hook-forma
+// ayo dont download my naked lilia picture

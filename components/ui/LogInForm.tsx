@@ -1,6 +1,7 @@
+'use client'
 import React from "react";
 import Link from "next/link";
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { ILoginFormInput, loginSchema } from "@/app/schemas/userSchema";
 import { userSignIn } from "@/app/api/register/userService";
@@ -16,7 +17,7 @@ export default function LogInForm() {
   } = useForm<ILoginFormInput>({
     resolver: zodResolver(loginSchema),
   });
-
+  // const { register, handleSubmit } = useForm<ILoginFormInput>();
   const onSubmit = async (data: ILoginFormInput) => {
     try {
       await userSignIn(data);
