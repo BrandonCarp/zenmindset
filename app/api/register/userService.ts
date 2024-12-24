@@ -1,5 +1,6 @@
 'use client';
 
+
 export interface NewUserPayload {
   username: string;
   email: string;
@@ -15,7 +16,7 @@ export interface LoginPayload {
 
 export async function newRegistration(data: NewUserPayload) {
   try {
-    const response = await fetch('http://127.0.0.1:5000/api/users/register', {
+    const response = await fetch('http://127.0.0.1:5000/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +37,7 @@ export async function newRegistration(data: NewUserPayload) {
 
 export async function userSignIn(data: LoginPayload) {
   try {
-    const response = await fetch('http://127.0.0.1:5000/api/users/login', {
+    const response = await fetch('http://127.0.0.1:5000/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
