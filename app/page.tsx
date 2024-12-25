@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import DarkModeButton from "@/components/ui/DarkModeButton";
 import SignUpForm from "@/components/ui/SignUpForm";
-import Navbar from "@/components/ui/Navbar";
+import Navbar from "@/components/ui/navbar/Navbar";
 
 export default function Home() {
 
