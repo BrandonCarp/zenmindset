@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`antialiased bg-white text-black dark:bg-gray-950 dark:text-white `}
+        className={`antialiased bg-white text-black dark:bg-customGray-dark dark:text-white `}
         style={{ fontFamily: "" }}
       >
         {children}

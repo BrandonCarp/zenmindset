@@ -6,19 +6,25 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: "selector",
+  darkMode: "class",
   theme: {
     extend: {
-
-    }, screens: {
-      xs: "480px",
-      ss: "620px",
-      sm: "768px",
-      md: "1060px",
-      lg: "1200px",
-      xl: "1700px",
+      colors: {
+        customGray: {
+          dark: "#0d0d0d",
+        },
+      },
+      screens: {
+        xs: "480px",
+        ss: "620px",
+        sm: "768px",
+        md: "1060px",
+        lg: "1200px",
+        xl: "1700px",
+      },
     },
   },
   plugins: [],
 };
+
 export default config;
