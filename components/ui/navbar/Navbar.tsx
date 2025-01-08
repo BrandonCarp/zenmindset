@@ -5,11 +5,11 @@ import ZenLinks from "./ZenLinks";
 export default function Navbar() {
   return (
     <>
-      <div className="p-5 flex justify-between items-center">
-        <ZenLinks />
-        <div className="flex items-center space-x-8">
+      <div className=" flex justify-between items-center p-3">
+        <h1 className="   font-semibold ">Zen Mindset</h1>
+        <div className="flex items-center ">
           <NavLinks />
-          <DarkModeButton />
+
         </div>
       </div>
     </>

@@ -1,5 +1,5 @@
-import SignUpForm from "@/app/ui/SignUpForm"
-import DarkModeButton from "@/app/ui/DarkModeButton"
+import SignUpForm from "@/components/ui/SignUpForm"
+import DarkModeButton from "@/components/ui/DarkModeButton"
 
 
 export default function signup() {
