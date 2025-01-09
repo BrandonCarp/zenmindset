@@ -39,14 +39,14 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <div className="text-center">
+    <div className="text-center mt-10">
       <div>
-        <h1 className="text-[3.2rem]">Zen Mindset</h1>
-        <h2 className="text-[1.5rem] text-indigo-700">Embrace challenge, grow stronger</h2>
+        <h1 className="text-[2rem]">Zen Mindset</h1>
+        <h2 className="text-[1.5rem] text-indigo-500">Embrace challenge, grow stronger</h2>
       </div>
 
-      <div className="flex items-center justify-center mt-[5rem] space-x-8">
-        <div className="relative w-[30vw] h-[30vh] rounded-lg overflow-hidden">
+      <div className="flex flex-col items-center justify-center mt-[5rem]  space-x-8">
+        <div className="relative w-[75vw] h-[20vh] rounded-lg overflow-hidden">
           <Image
             src={images[imageIndex]}
             alt={`Image ${imageIndex}`}
@@ -56,9 +56,9 @@ export default function HeroSection() {
           />
         </div>
 
-        <div className="flex flex-col items-center max-w-[600px]">
-          <h1 className="text-[1.5rem]">{quote ? quote.text : 'Loading...'}</h1>
-          <p className="text-[1.25rem] relative">
+        <div className="flex flex-col items-center max-w-[600px] mt-5">
+          <h1 className="">{quote ? quote.text : 'Loading...'}</h1>
+          <p className=" relative">
             {quote?.author}
             <span className="absolute bottom-0 left-0 w-full h-[2px] bg-indigo-600 animate-border-left-right"></span>
           </p>
