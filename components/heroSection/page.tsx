@@ -41,29 +41,33 @@ export default function HeroSection() {
   return (
     <div className="text-center mt-10">
       <div>
-        <h1 className="text-[2rem]">Zen Mindset</h1>
+        <h1 className="text-[2rem] ss:text-[2.5rem] lg:text-[3rem]">Zen Mindset</h1>
         <h2 className="text-[1.5rem] text-indigo-500">Embrace challenge, grow stronger</h2>
       </div>
 
-      <div className="flex flex-col items-center justify-center mt-[5rem]  space-x-8">
-        <div className="relative w-[75vw] h-[20vh] rounded-lg overflow-hidden">
+      <div className="flex flex-col items-center justify-center mt-[5rem] mx-5 sm:flex-row sm:gap-10">
+
+        <div className="relative w-[80vw] aspect-[16/9] rounded-lg overflow-hidden xs:aspect-[4/3] ss:w-[75vw] sm:w-[50vw]  md:w-[45vw] lg:w-[40vw] lgsm:w-[40vw] lgmd:w-[35vw]">
           <Image
             src={images[imageIndex]}
             alt={`Image ${imageIndex}`}
             layout="fill"
             objectFit="cover"
+            objectPosition="center"
             quality={100}
           />
         </div>
 
-        <div className="flex flex-col items-center max-w-[600px] mt-5">
+        {/* Quote Container */}
+        <div className="flex flex-col items-center max-w-[600px] mt-5 ss:text-[20px] sm:text-[25px] px-8 sm:px-0 sm:w-[40vw] sm:mt-0">
           <h1 className="">{quote ? quote.text : 'Loading...'}</h1>
-          <p className=" relative">
+          <p className="relative">
             {quote?.author}
             <span className="absolute bottom-0 left-0 w-full h-[2px] bg-indigo-600 animate-border-left-right"></span>
           </p>
         </div>
       </div>
     </div>
+
   );
 }
