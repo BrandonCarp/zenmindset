@@ -1,4 +1,5 @@
 'use client';
+import Link from 'next/link';
 import React from 'react';
 import DarkModeButton from "../DarkModeButton";
 
@@ -17,7 +18,7 @@ export default function NavLinks() {
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-600 transition-all duration-300 group-hover:w-full "></span>
             </li>
             <li className="relative group cursor-pointer">
-              Sign in
+              <Link href="/login">Sign in</Link>
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
             </li>
             <li className='pl-1'>
