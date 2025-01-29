@@ -10,3 +10,5 @@ export default function Signup() {
     </>
   )
 }
+
+///https://flowbite.com/docs/forms/search-input/

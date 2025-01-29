@@ -1,8 +1,10 @@
 'use client';
 import Link from "next/link";
-import Navbar from "@/components/ui/navbar/Navbar";
+import Navbar from "@/components/navbar/Navbar";
 import HeroSection from '@/components/heroSection/page';
 import Footer from "@/components/footer/page";
+
+
 
 export default function Home() {
   return (

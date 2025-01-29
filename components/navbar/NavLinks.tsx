@@ -1,8 +1,9 @@
 'use client';
 import Link from 'next/link';
 import React from 'react';
-import DarkModeButton from "../DarkModeButton";
+import DarkModeButton from "../ui/DarkModeButton";
 
+// make dynamic by passing props
 export default function NavLinks() {
   return (
     <>

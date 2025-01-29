@@ -9,3 +9,4 @@ export default function Login() {
     <LogInForm />
   </>
 }
+// https://flowbite.com/docs/forms/search-input/
