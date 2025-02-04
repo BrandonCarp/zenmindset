@@ -9,7 +9,7 @@ import Footer from "@/components/footer/page";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
+      <Navbar log="Login" />
       <div className="flex-grow ">
         <HeroSection />
       </div>
