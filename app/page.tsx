@@ -13,9 +13,9 @@ export default function Home() {
       <div className="flex-grow ">
         <HeroSection />
       </div>
-      <div className="w-full px-10 mt-10">
-        <Footer />
-      </div>
+
+      <Footer />
+
     </div>
   );
 }

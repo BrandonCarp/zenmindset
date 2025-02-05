@@ -1,5 +1,6 @@
 'use client';
 import Navbar from "@/components/navbar/Navbar";
+import Footer from "@/components/footer/page";
 
 // random recent blog post from last 30 days 
 // then 3 small ones next to it
@@ -18,6 +19,7 @@ export default function blog() {
           Optimize your focus. <span className="block xs:inline">Elevate your workflow.</span>
         </p>
       </div>
+
     </div>
 
   </>)
