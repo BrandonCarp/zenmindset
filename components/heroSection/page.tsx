@@ -124,7 +124,7 @@ export default function HeroSection() {
     <div className="text-center mt-10">
       <div>
         <h1 className="text-[2rem] ss:text-[2.5rem] lg:text-[3rem]">Zen Mindset</h1>
-        <h2 className="text-[1.5rem] text-indigo-500">Embrace challenge, grow stronger</h2>
+        <h2 className=" text-indigo-500 px-5 text-[1.2rem] sm:text-[1.5rem]">Embrace challenge, grow stronger</h2>
       </div>
 
       <div className="flex flex-col items-center justify-center mt-[5rem] mx-5 sm:flex-row sm:gap-10">

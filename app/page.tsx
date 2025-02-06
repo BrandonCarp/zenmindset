@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar log="Login" />
-      <div className="flex-grow ">
+      <div className="flex-grow mb-10 sm:mb-0">
         <HeroSection />
       </div>
 
