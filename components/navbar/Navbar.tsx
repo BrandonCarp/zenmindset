@@ -1,7 +1,7 @@
-
 import DarkModeButton from "../ui/DarkModeButton";
-import NavLinks from "./NavLinks";
 import Link from "next/link";
+import ArticleIcon from '@mui/icons-material/Article';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 
 
 
@@ -15,16 +15,18 @@ export default function Navbar({ log }: { log: string }) {
         {/* Navlinks */}
         <div className="flex justify-between items-center ">
           <div className="flex items-center">
-            <ul className="flex text-[13px] space-x-2 md:text-[1rem]">
+            <ul className="flex text-[13px] space-x-3 md:text-[1rem]">
               <li className="relative group cursor-pointer">
-                <Link href={"/blog"}>Blogs</Link>
+                <Link href={"/blog"}>
+                  <ArticleIcon fontSize="medium" />
+                </Link>
                 <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-600 transition-all duration-300 group-hover:w-full "></span>
               </li>
               <li className="relative group cursor-pointer">
-                <Link href={log.toLowerCase()}>{log}</Link>
+                <Link className="" href={log.toLowerCase()}> <PersonOutlineIcon fontSize="medium" /></Link>
                 <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-indigo-600 transition-all duration-300 group-hover:w-full"></span>
               </li>
-              <li className='pl-1'>
+              <li className='pl-1 pt-1'>
                 <DarkModeButton />
               </li>
             </ul>

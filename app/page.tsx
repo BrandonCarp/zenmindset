@@ -1,8 +1,8 @@
 'use client';
 import Link from "next/link";
 import Navbar from "@/components/navbar/Navbar";
-import HeroSection from '@/components/heroSection/page';
-import Footer from "@/components/footer/page";
+import HeroSection from '@/components/heroSection/HeroSection';
+import Footer from "@/components/Footer/Footer";
 
 
 

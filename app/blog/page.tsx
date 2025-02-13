@@ -1,6 +1,7 @@
 'use client';
 import Navbar from "@/components/navbar/Navbar";
-import Footer from "@/components/footer/page";
+import Footer from "@/components/Footer/Footer";
+import HeadBlogArticle from "@/components/HeadBlogArticle/headBlogArticle";
 
 // random recent blog post from last 30 days 
 // then 3 small ones next to it
@@ -14,14 +15,17 @@ export default function blog() {
     <div className="flex flex-col min-h-screen">
       <Navbar log="Sign Out" />
       <div className="flex-grow mb-10 sm:mb-0">
-        <div className="mt-10 flex items-center justify-center  md:mt-[5rem]">
+        <div className="mt-5 flex items-center justify-center  md:mt-[5rem]">
           <div className="px-[10%] text-center ">
             <h1 className="font-semibold text-2xl tracking-tight xs:text-3xl sm:text-5xl ">You cannot alter your fate. However, you can rise to meet it.</h1>
             <p className="text-center font-semibold text-md mt-5 text-indigo-500 xs:text-1xl md:text-2xl ">
               Optimize your focus. <span className="block xs:inline">Elevate your workflow.</span>
             </p>
           </div>
+        </div>
 
+        <div className="flex justify-center ">
+          <HeadBlogArticle />
         </div>
       </div>
 
@@ -31,25 +35,7 @@ export default function blog() {
 
   </>)
 }
-{/* <Navbar log="Sign Out" />
-<div className="mt-10 flex items-center justify-center  md:mt-[5rem]">
-  <div className="px-[10%] text-center ">
-    <h1 className="font-semibold text-2xl tracking-tight xs:text-3xl sm:text-5xl ">You cannot alter your fate. However, you can rise to meet it.</h1>
-    <p className="text-center font-semibold text-md mt-5 text-indigo-500 xs:text-1xl md:text-2xl ">
-      Optimize your focus. <span className="block xs:inline">Elevate your workflow.</span>
-    </p>
-  </div>
 
-</div> */}
-
-
-//  <div className="flex flex-col min-h-screen">
-//       <Navbar log="Login" />
-//       <div className="flex-grow mb-10 sm:mb-0">
-//         <HeroSection />
-//       </div>
-
-//       <Footer />
 
 //     </div>
 // xs: "375px",
