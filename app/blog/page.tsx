@@ -24,9 +24,16 @@ export default function blog() {
           </div>
         </div>
 
-        <div className="flex justify-center ">
-          <HeadBlogArticle />
+        <div className="flex flex-col justify-center items-center text-center ">
+          <div className="flex  justify-center ">
+
+            <HeadBlogArticle />
+
+          </div>
+          <h1 className="mt-5">Read more Below</h1>
         </div>
+
+
       </div>
 
       <Footer />
