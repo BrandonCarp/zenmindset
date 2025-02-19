@@ -7,6 +7,9 @@ import { ILoginFormInput, loginSchema } from "@/app/schemas/userSchema";
 import { userSignIn } from "@/app/api/register/userService";
 
 
+// Will change to pop out on navbar
+// popout will either lead you to your page or have a login pop out that will do it
+// need to have cookies exchanged review them
 
 export default function LogInForm() {
 
